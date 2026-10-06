@@ -1,0 +1,669 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f1e9">
+
+  <title>Kanji Rumbi — Resep Tradisional Aceh</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f7f1e9;
+      --paper: #fffdf9;
+      --ink: #33291f;
+      --muted: #75685b;
+      --brand: #995026;
+      --accent: #be763e;
+      --border: #e9ded0;
+      --soft: #f5eadd;
+      --green: #52775b;
+      --radius: 22px;
+      --shadow: 0 24px 65px rgba(72, 42, 19, 0.09);
+    }
+
+    /* RESET */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(
+          circle at 15% 0%,
+          #fff9ec 0%,
+          transparent 40%
+        ),
+        var(--bg);
+      font: 16px/1.75 'DM Sans', system-ui, sans-serif;
+      color: var(--ink);
+    }
+
+    /* PAGE */
+    .page {
+      width: min(100% - 36px, 1000px);
+      margin: 50px auto 70px;
+    }
+
+    .topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+      padding: 0 8px;
+      color: var(--brand);
+      font-weight: 700;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      font-size: 0.73rem;
+    }
+
+    .topline span:last-child {
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    .card {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      isolation: isolate;
+      padding: 60px clamp(26px, 7vw, 76px) 58px;
+      background:
+        linear-gradient(
+          115deg,
+          rgba(71, 35, 17, 0.93),
+          rgba(141, 67, 28, 0.94)
+        ),
+        radial-gradient(
+          circle at 80% 20%,
+          #d5a36c,
+          #703a24
+        );
+      color: white;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      opacity: 0.15;
+      background: repeating-radial-gradient(
+        circle at 92% 55%,
+        transparent 0 24px,
+        #ffe4bb 25px 26px,
+        transparent 27px 49px
+      );
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 100px;
+      padding: 7px 16px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3, p {
+      margin-top: 0;
+    }
+
+    h1 {
+      font: 600 clamp(2.75rem, 6vw, 4.7rem)/1.11
+        'Playfair Display', Georgia, serif;
+      letter-spacing: -0.045em;
+      margin: 23px 0 17px;
+      max-width: 740px;
+    }
+
+    .hero p {
+      max-width: 600px;
+      color: #f6e4d3;
+      font-size: 1.06rem;
+      margin-bottom: 0;
+    }
+
+    .hero-art {
+      position: absolute;
+      right: 7%;
+      bottom: 18%;
+      font-size: clamp(70px, 10vw, 120px);
+      opacity: 0.28;
+      transform: rotate(-12deg);
+      pointer-events: none;
+    }
+
+    /* RECIPE INFO */
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border-bottom: 1px solid var(--border);
+      background: #fff8ef;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 13px;
+      padding: 22px 12px;
+      border-right: 1px solid var(--border);
+    }
+
+    .meta-item:last-child {
+      border-right: 0;
+    }
+
+    .meta-icon {
+      display: grid;
+      place-items: center;
+      width: 43px;
+      height: 43px;
+      flex-shrink: 0;
+      border-radius: 14px;
+      background: #f1e2d0;
+      font-size: 21px;
+    }
+
+    .meta small {
+      display: block;
+      color: var(--muted);
+      font-size: 0.72rem;
+    }
+
+    .meta strong {
+      display: block;
+      font-size: 0.9rem;
+    }
+
+    /* CONTENT */
+    .content {
+      padding: clamp(24px, 6vw, 65px);
+    }
+
+    .intro {
+      max-width: 760px;
+      color: var(--muted);
+      margin-bottom: 45px;
+    }
+
+    .section {
+      margin-top: 42px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+
+    .number {
+      display: grid;
+      place-items: center;
+      flex: 0 0 42px;
+      height: 42px;
+      background: var(--soft);
+      border-radius: 13px;
+      color: var(--brand);
+      font-weight: 700;
+    }
+
+    h2 {
+      margin: 0;
+      font: 600 clamp(1.65rem, 3vw, 2.15rem)/1.25
+        'Playfair Display', Georgia, serif;
+    }
+
+    .rule {
+      height: 1px;
+      background: var(--border);
+      flex: 1;
+    }
+
+    /* INGREDIENTS */
+    .ingredients {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .ingredient-card {
+      padding: 27px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: #fdf9f3;
+    }
+
+    .ingredient-card h3 {
+      font-size: 0.99rem;
+      margin: 0 0 15px;
+      color: var(--brand);
+      line-height: 1.45;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .ingredients li {
+      position: relative;
+      padding-left: 24px;
+      margin: 0 0 10px;
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    .ingredients li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .subhead {
+      margin-top: 25px !important;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* COOKING STEPS */
+    .steps {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      counter-reset: recipe;
+    }
+
+    .steps li {
+      position: relative;
+      counter-increment: recipe;
+      display: grid;
+      grid-template-columns: 45px 1fr;
+      gap: 17px;
+      padding: 19px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+
+    .steps li:last-child {
+      border-bottom: 0;
+    }
+
+    .steps li::before {
+      content: counter(recipe, decimal-leading-zero);
+      display: grid;
+      place-items: center;
+      width: 43px;
+      height: 43px;
+      border-radius: 50%;
+      background: var(--soft);
+      color: var(--brand);
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .steps li span {
+      padding-top: 6px;
+    }
+
+    /* TIPS */
+    .tip {
+      display: flex;
+      align-items: flex-start;
+      gap: 17px;
+      margin-top: 35px;
+      padding: 23px 26px;
+      background: #edf2ea;
+      border-left: 4px solid var(--green);
+      border-radius: 0 16px 16px 0;
+    }
+
+    .tip-icon {
+      font-size: 24px;
+    }
+
+    .tip strong {
+      display: block;
+      color: #35583f;
+    }
+
+    .tip p {
+      margin: 0;
+      color: #48614e;
+      font-size: 0.9rem;
+    }
+
+    /* FOOTER */
+    footer {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 23px clamp(24px, 6vw, 65px);
+      background: #f8f0e6;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 700px) {
+      .page {
+        margin: 22px auto 40px;
+      }
+
+      .hero {
+        padding: 48px 26px;
+      }
+
+      .hero-art {
+        right: 0;
+        bottom: 0;
+        font-size: 74px;
+      }
+
+      .meta-item {
+        gap: 7px;
+        flex-direction: column;
+        text-align: center;
+        padding: 15px 7px;
+      }
+
+      .meta-icon {
+        width: 36px;
+        height: 36px;
+      }
+
+      .meta strong {
+        font-size: 0.78rem;
+      }
+
+      .ingredients {
+        grid-template-columns: 1fr;
+      }
+
+      .content {
+        padding: 28px 23px;
+      }
+
+      .topline span:last-child {
+        display: none;
+      }
+    }
+
+    /* ANIMATION */
+    @media (prefers-reduced-motion: no-preference) {
+      .card {
+        animation: rise 0.65s ease both;
+      }
+
+      @keyframes rise {
+        from {
+          opacity: 0;
+          transform: translateY(14px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    }
+
+    /* PRINT */
+    @media print {
+      body {
+        background: white;
+      }
+
+      .page {
+        width: 100%;
+        margin: 0;
+      }
+
+      .card {
+        box-shadow: none;
+        border: 0;
+      }
+
+      .ingredient-card,
+      .steps li {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <div class="topline">
+      <span>✦ Dapur Warisan Aceh</span>
+      <span>Resep Tradisional · Edisi Kuliner</span>
+    </div>
+
+    <main class="card">
+
+      <!-- HERO -->
+      <header class="hero">
+        <span class="eyebrow">
+          ✦ Cita Rasa Nusantara
+        </span>
+
+        <h1>Bubur Kanji<br>Rumbi</h1>
+
+        <p>
+          Bubur gurih kaya rempah dari Aceh —
+          hangat, lembut, dan penuh cita rasa tradisi.
+        </p>
+
+        <span class="hero-art" aria-hidden="true">🥣</span>
+      </header>
+
+      <!-- INFORMASI -->
+      <section class="meta">
+        <div class="meta-item">
+          <span class="meta-icon">⏱</span>
+          <div>
+            <small>Waktu masak</small>
+            <strong>45–60 menit</strong>
+          </div>
+        </div>
+
+        <div class="meta-item">
+          <span class="meta-icon">🍽</span>
+          <div>
+            <small>Hasil sajian</small>
+            <strong>4–5 porsi</strong>
+          </div>
+        </div>
+
+        <div class="meta-item">
+          <span class="meta-icon">♨️</span>
+          <div>
+            <small>Tingkat kesulitan</small>
+            <strong>Sedang</strong>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTENT -->
+      <div class="content">
+
+        <p class="intro">
+          Kanji Rumbi merupakan hidangan bubur khas Aceh
+          yang dikenal dengan aroma rempahnya.
+          Cocok disajikan hangat untuk keluarga.
+        </p>
+
+        <!-- BAHAN -->
+        <section class="section">
+          <div class="section-header">
+            <span class="number">01</span>
+            <h2>Bahan-bahan</h2>
+            <span class="rule"></span>
+          </div>
+
+          <div class="ingredients">
+
+            <div class="ingredient-card">
+              <h3>Bahan utama &amp; rempah utuh</h3>
+
+              <ul>
+                <li>200 gr beras, cuci bersih &amp; rendam</li>
+                <li>250 gr daging ayam / udang, potong dadu</li>
+                <li>1.500 ml air kaldu ayam gurih</li>
+                <li>100 gr wortel, potong dadu kecil</li>
+                <li>1 batang serai, memarkan</li>
+                <li>2 lembar daun pandan, simpulkan</li>
+                <li>2 butir kapulaga &amp; 3 butir cengkeh</li>
+                <li>1 buah pekak atau bunga lawang</li>
+                <li>1 batang kayu manis (±3 cm)</li>
+                <li>1 sdt garam &amp; 1 sdt kaldu jamur</li>
+              </ul>
+            </div>
+
+            <div class="ingredient-card">
+              <h3>Bumbu halus</h3>
+
+              <ul>
+                <li>5 siung bawang merah</li>
+                <li>3 siung bawang putih</li>
+                <li>1 sdt ketumbar, sangrai</li>
+                <li>½ sdt merica butiran</li>
+                <li>¼ sdt adas manis &amp; ½ sdt jintan</li>
+                <li>1 cm jahe segar</li>
+                <li>1 butir kemiri, sangrai</li>
+              </ul>
+
+              <h3 class="subhead">Pelengkap &amp; topping</h3>
+
+              <ul>
+                <li>Bawang merah goreng renyah</li>
+                <li>Daun seledri &amp; daun bawang cincang</li>
+                <li>Emping melinjo atau kerupuk</li>
+              </ul>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- CARA MEMBUAT -->
+        <section class="section">
+          <div class="section-header">
+            <span class="number">02</span>
+            <h2>Cara membuat</h2>
+            <span class="rule"></span>
+          </div>
+
+          <ol class="steps">
+            <li>
+              <span>
+                Rebus beras bersama air kaldu ayam,
+                daun pandan, serai, kayu manis,
+                cengkeh, kapulaga, dan bunga lawang
+                hingga beras lunak dan mulai mengental.
+              </span>
+            </li>
+
+            <li>
+              <span>
+                Panaskan sedikit minyak, lalu tumis
+                bumbu halus sampai wangi dan matang.
+              </span>
+            </li>
+
+            <li>
+              <span>
+                Masukkan potongan ayam atau udang
+                ke dalam tumisan bumbu, lalu aduk
+                sampai berubah warna.
+              </span>
+            </li>
+
+            <li>
+              <span>
+                Tuang tumisan bumbu dan ayam atau udang
+                ke dalam panci bubur, lalu aduk rata.
+              </span>
+            </li>
+
+            <li>
+              <span>
+                Tambahkan wortel, garam, dan kaldu jamur.
+                Masak dengan api kecil sambil diaduk
+                hingga bubur lembut dan bumbu meresap.
+                Koreksi rasa.
+              </span>
+            </li>
+
+            <li>
+              <span>
+                Angkat dan sajikan hangat dengan
+                taburan seledri, daun bawang,
+                bawang goreng, dan emping renyah.
+              </span>
+            </li>
+          </ol>
+
+          <!-- TIPS -->
+          <aside class="tip">
+            <span class="tip-icon">✦</span>
+
+            <div>
+              <strong>Tips dapur</strong>
+              <p>
+                Aduk bubur secara berkala dengan api kecil
+                agar bagian bawah tidak lengket dan
+                teksturnya tetap lembut.
+              </p>
+            </div>
+          </aside>
+
+        </section>
+      </div>
+
+      <!-- FOOTER -->
+      <footer>
+        <span>© Buku Resep Aceh</span>
+        <span>Dibuat untuk Latihan Git Kolaborasi</span>
+      </footer>
+
+    </main>
+  </div>
+</body>
+</html>
